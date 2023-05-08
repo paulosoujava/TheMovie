@@ -21,9 +21,30 @@ https://www.themoviedb.org/
  >>utilidades para serem acessadas de arcodo com o diretório que esta
 
 
+## Estratégia
+
+> Onboarding
+ >>Usei o Onboarding de welcome para fazer o download dos dados
+ que pego da api. Enquanto o cliente se deleita na bela tela de entrada
+ eu  baixo os dados, aqui fica uma ressalva, pois
+ não fiz o tratamento para caso o app, esteja sem internet, estou sem tempo, mas 
+ pretendo impelemtar..
+ Uma outra coisa que foi feita foi usar o singleton para
+ trasitar os dados sem ter a necessidade de consultas, otimizando assim o app.
+ 
+ ## Padrões utilizado
+
+> Abstract Factory
+
+> Singleton
+
+> Observer
+
+
+
 ## Importante
 
-> Para que o aplicativo funcione, você deve colcar o código abaixo no:
+> Para que o aplicativo funcione, você deve colocar o código abaixo no:
  ## local.properties
 
 ```
@@ -53,4 +74,5 @@ token=" SEU TOKEN DO MOVIE DB"
 # O que falta:
  - Testes
  - Cache
+ - Check Inernet
  
