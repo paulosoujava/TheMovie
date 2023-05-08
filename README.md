@@ -1,8 +1,6 @@
 # TheMovie
 https://www.themoviedb.org/
 
-Para que o app funcione corretamente é necessário colocar no arquivo
-## local.properties
 
 
 
@@ -24,6 +22,10 @@ Para que o app funcione corretamente é necessário colocar no arquivo
  
  # !! IMPORTANTE !!
  ````
+ Para que o app funcione corretamente é necessário colocar no arquivo:
+ 
+ local.properties
+
 api=" SEU KEY DO MOVIE DB"
 base_url="https://api.themoviedb.org/3/"
 base_image="https://image.tmdb.org/t/p/"
