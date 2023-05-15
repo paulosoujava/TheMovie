@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -33,21 +34,77 @@ import com.paulo.mymovie.presenter.theme.Orange
 import com.paulo.mymovie.presenter.util.pathImage
 
 @Composable
-fun contentList(items: List<Movie>, navController: NavHostController) {
-    Row(Modifier.horizontalScroll(rememberScrollState())) {
+fun contentList(section: Boolean, items: List<Movie>, navController: NavHostController) {
+    if(section){
+        Row(Modifier.horizontalScroll(rememberScrollState())) {
+            repeat(items.size) {
+                Card(
+                    modifier = Modifier
+                        .clickable {
+                            navigateToDetail(items[it], navController)
+                        }
+                        .padding(10.dp)
+                        .size(180.dp, 280.dp),
+                    contentColor = Color.White,
+                    elevation = 12.dp,
+                    shape = RoundedCornerShape(20.dp)
+                ) {
+                    Box(modifier =  Modifier.size(280.dp, 300.dp)){
+
+                        AsyncImage(
+                            model = ImageRequest.Builder(LocalContext.current)
+                                .data(items[it].posterPath.pathImage())
+                                .crossfade(true)
+                                .build(),
+                            placeholder = painterResource(R.drawable.logo),
+                            contentDescription = items[it].title,
+                            contentScale = ContentScale.FillBounds,
+                            modifier = Modifier
+                                .size(280.dp, 300.dp)
+                                .clip(shape = RoundedCornerShape(20.dp))
+                        )
+                        Row(Modifier.fillMaxWidth().padding(10.dp),
+                            horizontalArrangement = Arrangement.End,
+                            verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                text =  String.format("%.1f",items[it].voteAverage),
+                                color = Color.Black,
+                                modifier = Modifier.background(
+                                    color = Orange,
+                                    shape = RoundedCornerShape(20.dp),
+                                ).padding(9.dp)
+                            )
+                        }
+                        Row (Modifier.fillMaxSize(),
+                            horizontalArrangement = Arrangement.Start,
+                            verticalAlignment = Alignment.Bottom) {
+                            Text(
+                                text = items[it].title,
+                                maxLines = 2,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(Color.Black.copy(alpha = .7f)).padding(10.dp)
+                            )
+                        }
+                    }
+
+                }
+            }
+        }
+    }else{
         repeat(items.size) {
             Card(
-                modifier = Modifier
+                modifier = Modifier.fillMaxWidth()
                     .clickable {
-                       navigateToDetail(items[it], navController)
+                        navigateToDetail(items[it], navController)
                     }
                     .padding(10.dp)
                     .size(180.dp, 280.dp),
                 contentColor = Color.White,
                 elevation = 12.dp,
-                shape = RoundedCornerShape(20.dp)
+                shape = RoundedCornerShape(topStartPercent = 10, topEndPercent = 40, bottomEndPercent = 10, bottomStartPercent = 10)
             ) {
-                Box(modifier =  Modifier.size(280.dp, 300.dp)){
+                Box{
 
                     AsyncImage(
                         model = ImageRequest.Builder(LocalContext.current)
@@ -58,11 +115,11 @@ fun contentList(items: List<Movie>, navController: NavHostController) {
                         contentDescription = items[it].title,
                         contentScale = ContentScale.FillBounds,
                         modifier = Modifier
-                            .size(280.dp, 300.dp)
+                            .height( 300.dp)
                             .clip(shape = RoundedCornerShape(20.dp))
                     )
                     Row(Modifier.fillMaxWidth().padding(10.dp),
-                        horizontalArrangement = Arrangement.End,
+                        horizontalArrangement = Arrangement.Start,
                         verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             text =  String.format("%.1f",items[it].voteAverage),
@@ -89,6 +146,7 @@ fun contentList(items: List<Movie>, navController: NavHostController) {
             }
         }
     }
+
 }
 
 

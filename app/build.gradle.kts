@@ -82,10 +82,13 @@ dependencies {
 
     //DI
     implementation("com.google.dagger:hilt-android:2.44")
+    implementation("androidx.test:core-ktx:1.5.0")
+    implementation("com.google.firebase:firebase-dynamic-links-ktx:21.1.0")
     kapt("com.google.dagger:hilt-compiler:2.44")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
+    //SPLASH
     implementation("androidx.core:core-splashscreen:1.0.0-beta01")
 
     // Navigation Compose
@@ -124,8 +127,6 @@ dependencies {
     implementation( "io.coil-kt:coil-compose:2.1.0")
     implementation("io.coil-kt:coil-gif:2.1.0")
 
-
-
     //TESTS
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -134,4 +135,13 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
+
+    testImplementation("org.mockito:mockito-core:3.6.0")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
+
+    androidTestImplementation("com.google.truth:truth:1.0.1")
+    androidTestImplementation("android.arch.core:core-testing:1.0.0")
 }

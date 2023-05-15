@@ -1,0 +1,27 @@
+# flow.yaml
+
+appId: com.paulo.mymovie
+---
+#- launchApp
+- scrollUntilVisible:
+      element: "Assassin Club"
+      direction: DOWN # DOWN|UP|LEFT|RIGHT (optional, default: DOWN)
+- scrollUntilVisible:
+    element: "Evil Dead Rise"
+    direction: UP # DOWN|UP|LEFT|RIGHT (optional, default: DOWN)
+- tapOn:
+    text: "Ver todos"
+    index: 1
+- tapOn:
+    point: "92%,8%"
+- inputText: "pop"
+- assertVisible: "The Pope's Exorcist"
+- tapOn: "The Pope's Exorcist"
+- tapOn: "FAVORITE"
+- tapOn: "BACK"
+- tapOn:
+    point: "7%,8%"
+- tapOn:
+    point: "89%,92%"
+- tapOn:
+    point: "7%,8%"

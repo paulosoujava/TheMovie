@@ -50,6 +50,7 @@ import coil.request.ImageRequest
 import com.paulo.mymovie.R
 import com.paulo.mymovie.domain.model.Movie
 import com.paulo.mymovie.domain.model.Video
+import com.paulo.mymovie.domain.util.isOnline
 import com.paulo.mymovie.presenter.commons.FavoriteViewModel
 import com.paulo.mymovie.presenter.commons.Video
 import com.paulo.mymovie.presenter.screens.detail.components.Content
@@ -114,7 +115,7 @@ fun DetailScreen(navController: NavHostController, movie: Movie) {
          * DIALOG VIDEO
          ***************************************************************************************/
         AnimatedVisibility(
-            visible = showVideo.value,
+            visible = showVideo.value && isOnline(context),
             enter = expandVertically(
                 // Expand from the top.
                 expandFrom = Alignment.Top

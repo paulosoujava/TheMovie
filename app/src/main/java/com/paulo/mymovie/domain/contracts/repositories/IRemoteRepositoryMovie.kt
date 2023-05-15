@@ -1,4 +1,4 @@
-package com.paulo.mymovie.domain.repositories
+package com.paulo.mymovie.domain.contracts.repositories
 
 import com.paulo.mymovie.data.repositories.network.factory.FactoryMovies
 import com.paulo.mymovie.domain.model.Movie

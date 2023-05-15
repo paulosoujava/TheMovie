@@ -50,7 +50,7 @@ fun stickHeaderList(section: Boolean, navController: NavHostController) {
                 navController.navigate(Screen.SeeMore.route)
             },
         ) {
-            Text(text = "Ver mais", color = Color.LightGray.copy(alpha = .6f), fontSize = 12.sp)
+            Text(text = "Ver todos", color = Color.LightGray.copy(alpha = .6f), fontSize = 12.sp)
         }
         Icon(
             painter = painterResource(id = R.drawable.ic_right_arrow),

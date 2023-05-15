@@ -1,6 +1,6 @@
 package com.paulo.mymovie.domain.usecases.favorite
 
-import com.paulo.mymovie.domain.repositories.ILocalRepository
+import com.paulo.mymovie.domain.contracts.repositories.ILocalRepository
 
 class GetFavoriteUseCase(
     private val repository: ILocalRepository

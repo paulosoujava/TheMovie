@@ -41,6 +41,8 @@ class SeeMoreViewModel: ViewModel() {
             _movies.value
         )
 
+
+
     fun onSearchTextChanged(text: String) {
         _searchText.value = text
     }

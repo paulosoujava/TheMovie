@@ -2,7 +2,7 @@ package com.paulo.mymovie.domain.usecases.popular
 
 import com.paulo.mymovie.data.repositories.network.factory.FactoryMovies
 import com.paulo.mymovie.data.repositories.network.util.NetworkResult
-import com.paulo.mymovie.domain.repositories.IRemoteRepositoryMovie
+import com.paulo.mymovie.domain.contracts.repositories.IRemoteRepositoryMovie
 import com.paulo.mymovie.domain.model.Movie
 import retrofit2.HttpException
 

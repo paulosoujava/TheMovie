@@ -172,7 +172,7 @@ import com.paulo.mymovie.presenter.util.pathImage
                                 navigateToDetail(movie, navController)
                             },
                         ) {
-                            Text(text = "ver mais", color = Orange)
+                            Text(text = "Detalhes", color = Orange)
                         }
                     }
                 }

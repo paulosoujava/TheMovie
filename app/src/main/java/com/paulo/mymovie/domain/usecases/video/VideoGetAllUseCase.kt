@@ -1,7 +1,7 @@
 package com.paulo.mymovie.domain.usecases.video
 
 import com.paulo.mymovie.data.repositories.network.util.NetworkResult
-import com.paulo.mymovie.domain.repositories.IRemoteRepositoryMovie
+import com.paulo.mymovie.domain.contracts.repositories.IRemoteRepositoryMovie
 import com.paulo.mymovie.domain.model.Movie
 import com.paulo.mymovie.domain.model.Video
 import retrofit2.HttpException

@@ -13,6 +13,7 @@ import com.paulo.mymovie.domain.usecases.seeMore.MovieGetAllUseCase
 import com.paulo.mymovie.domain.usecases.welcome.GetWelcomeGetUseCase
 import com.paulo.mymovie.domain.util.handlerErrorsApi
 import com.paulo.mymovie.presenter.graph.Screen
+
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -21,8 +22,7 @@ import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
     private val useCase: GetWelcomeGetUseCase,
-    private val useCaseTrending: MovieGetAllUseCase,
-    private val useCasePopular: MovieGetAllUseCase
+    private val useCaseMovies: MovieGetAllUseCase,
 ) : ViewModel() {
 
     //necessário fazer deste jeito para evitar o bug que pisca a tela anterior
@@ -30,29 +30,31 @@ class MainViewModel @Inject constructor(
     private val _startScreen: MutableState<String?> = mutableStateOf(null)
     val startScreen: State<String?> = _startScreen
 
+    //STATE CONTENT TRENDING CARROUSEL
     private val _stateTrending = MutableStateFlow(MainUI())
     val stateTrending = _stateTrending
 
+    //STATE CONTENT POPULAR
     private val _statePopular = MutableStateFlow(MainUI())
     val statePopular = _statePopular
 
     private val messageError = "Obtivemos um erro:"
 
 
-    init {
 
+    init {
         factoryData(FactoryMovies.POPULAR)
         factoryData(FactoryMovies.TRENDING)
         checkFlagWelcome()
-
     }
+
 
 
     private fun factoryData(factoryMovies: FactoryMovies) {
         viewModelScope.launch {
             val network = when (factoryMovies) {
-                FactoryMovies.POPULAR -> useCasePopular()
-                FactoryMovies.TRENDING -> useCaseTrending()
+                FactoryMovies.POPULAR -> useCaseMovies(FactoryMovies.POPULAR)
+                FactoryMovies.TRENDING -> useCaseMovies(FactoryMovies.TRENDING)
             }
             when (network) {
                 is NetworkResult.Error -> {

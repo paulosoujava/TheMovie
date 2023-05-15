@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="MovieNetworkImplTest">
+        <State />
+      </entry>
+      <entry key="MovieNetworkImplTest.check if 400 response results in an error state">
+        <State />
+      </entry>
+      <entry key="MovieNetworkImplTest.check_if_400_response_results_in_an_error_state">
+        <State />
+      </entry>
+      <entry key="MovieNetworkImplTest.test_get_a_profile_by_code_response">
+        <State />
+      </entry>
+      <entry key="MovieNetworkImplTest.test_get_empty_response">
+        <State />
+      </entry>
+      <entry key="app">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_7_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2023-05-12T20:40:33.268311Z" />
+        </State>
+      </entry>
+    </value>
+  </component>
+</project>

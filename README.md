@@ -6,7 +6,7 @@ Para que o app funcione corretamente é necessário colocar no arquivo
 
 
 
-# O prejeto conta com o padrão clena
+# O prejeto conta com o padrão clean
 # Domain
   - Nossa logica de negocio: Models, Usecases, Contratos
 # Presenter
@@ -18,10 +18,9 @@ Para que o app funcione corretamente é necessário colocar no arquivo
 # Util
   - utilidades para serem acessadas de arcodo com o diretório que esta
   
-# O que falta:
- - Testes
- - Cache
- 
+
+ Utilizamod o Cache usando o iterceptor 
+
  # !! IMPORTANTE !!
  ````
 api=" SEU KEY DO MOVIE DB"

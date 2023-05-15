@@ -90,7 +90,7 @@ fun HomeScreen(
                  ***************************************************************************************/
 
                 item {
-                    contentList(items, navController)
+                    contentList(section, items, navController)
                 }
 
             }

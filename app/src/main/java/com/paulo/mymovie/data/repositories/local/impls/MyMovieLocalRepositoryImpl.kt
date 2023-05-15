@@ -2,7 +2,7 @@ package com.paulo.mymovie.data.repositories.local.impls
 
 import com.paulo.mymovie.data.repositories.local.MyMovieDao
 import com.paulo.mymovie.domain.model.Movie
-import com.paulo.mymovie.domain.repositories.ILocalRepository
+import com.paulo.mymovie.domain.contracts.repositories.ILocalRepository
 import kotlinx.coroutines.flow.Flow
 
 class MyMovieLocalRepositoryImpl(
@@ -21,7 +21,7 @@ private val dao: MyMovieDao
     }
 
     override suspend fun addMovie(trending: Movie) {
-        dao.addFavorite(trending = trending)
+        dao.addFavorite(movie = trending)
     }
 
     override suspend fun deleteMovie(code: Long) {

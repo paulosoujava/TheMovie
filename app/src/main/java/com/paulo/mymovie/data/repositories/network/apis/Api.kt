@@ -1,6 +1,7 @@
 package com.paulo.mymovie.data.repositories.network.apis
 
 import com.paulo.mymovie.BuildConfig
+import com.paulo.mymovie.data.repositories.network.dtos.Key
 import com.paulo.mymovie.data.repositories.network.util.ResultNetwork
 import com.paulo.mymovie.data.repositories.network.dtos.MovieDto
 import com.paulo.mymovie.data.repositories.network.dtos.VideoDto
@@ -14,8 +15,6 @@ interface Api {
     @GET("trending/all/day?api_key=${BuildConfig.API_KEY}")
     suspend fun getAllMovies(): ResultNetwork<List<MovieDto>>
 
-    @GET("/search/movie?api_key=${BuildConfig.API_KEY}")
-    suspend fun searchAMovie(): ResultNetwork<List<MovieDto>>
 
     @GET("movie/popular?api_key=${BuildConfig.API_KEY}")
     suspend fun getAllPopularMovies(): ResultNetwork<List<MovieDto>>
@@ -25,6 +24,18 @@ interface Api {
     suspend fun videos(
         @Path("id") id: String
     ): ResultNetwork<List<VideoDto>>
+
+
+    @GET("/search/movie?api_key=${BuildConfig.API_KEY}")
+    suspend fun searchAMovie(): ResultNetwork<List<MovieDto>>
+
+
+    @Headers(
+        "accept: application/json",
+        "Authorization: Bearer ${BuildConfig.TOKEN}"
+    )
+    @GET("/tv/changes?page=1")
+    suspend fun getListOgKeys():ResultNetwork<Key>
 
     @Headers(
         "accept: application/json",

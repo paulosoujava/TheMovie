@@ -8,6 +8,4 @@ data class MainUI(
     override val success: List<Movie> = emptyList(),
     override val errorMessage: String = "",
     override val event: BaseEvent = BaseEvent.LOADING
-) : BaseUI<Movie> {
-
-}
+) : BaseUI<Movie>

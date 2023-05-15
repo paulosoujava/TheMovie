@@ -2,6 +2,7 @@ package com.paulo.mymovie.di
 
 import android.content.Context
 import androidx.room.Room
+import com.paulo.mymovie.data.repositories.cache.okHttpClient
 import com.paulo.mymovie.data.repositories.local.MyMovieDao
 import com.paulo.mymovie.data.repositories.local.MyMovieDB
 
@@ -9,9 +10,9 @@ import com.paulo.mymovie.data.repositories.local.impls.DataStoreRepositoryImpl
 import com.paulo.mymovie.data.repositories.local.impls.MyMovieLocalRepositoryImpl
 import com.paulo.mymovie.data.repositories.network.apis.Api
 import com.paulo.mymovie.data.repositories.network.impls.MovieNetworkImpl
-import com.paulo.mymovie.domain.repositories.IDataStoreRepository
-import com.paulo.mymovie.domain.repositories.ILocalRepository
-import com.paulo.mymovie.domain.repositories.IRemoteRepositoryMovie
+import com.paulo.mymovie.domain.contracts.repositories.IDataStoreRepository
+import com.paulo.mymovie.domain.contracts.repositories.ILocalRepository
+import com.paulo.mymovie.domain.contracts.repositories.IRemoteRepositoryMovie
 import com.paulo.mymovie.domain.usecases.favorite.GetAllFavoriteUseCase
 import com.paulo.mymovie.domain.usecases.favorite.GetFavoriteUseCase
 import com.paulo.mymovie.domain.usecases.favorite.RemoveFavoriteUseCase
@@ -31,6 +32,9 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
+
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -89,14 +93,16 @@ object Module {
         byCode = GetFavoriteUseCase(repository = repository)
     )
 
+
     //********************************************************
     // RETROFIT
     //********************************************************
 
     @Provides
     @Singleton
-    fun provideApi(): Api {
+    fun provideApi(@ApplicationContext context: Context): Api {
         return Retrofit.Builder()
+            .client(okHttpClient(context))
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

@@ -1,0 +1,70 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/i1eghEBiC0gN4KnwuUGC2fNiX1f.jpg",
+      "id": 552688,
+      "title": "The Mother",
+      "original_language": "en",
+      "original_title": "The Mother",
+      "overview": "A deadly female assassin comes out of hiding to protect the daughter that she gave up years before, while on the run from dangerous men.",
+      "poster_path": "/vnRthEZz16Q9VWcP5homkHxyHoy.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "popularity": 101.326,
+      "release_date": "2023-05-04",
+      "video": false,
+      "vote_average": 6.532,
+      "vote_count": 77
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/aT3sRVqgpkyCo23fp9myVfKPWbA.jpg",
+      "id": 964980,
+      "title": "Air",
+      "original_language": "en",
+      "original_title": "Air",
+      "overview": "Discover the game-changing partnership between a then undiscovered Michael Jordan and Nike's fledgling basketball division which revolutionized the world of sports and culture with the Air Jordan brand.",
+      "poster_path": "/76AKQPdH3M8cvsFR9K8JsOzVlY5.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        18,
+        36,
+        35
+      ],
+      "popularity": 165.752,
+      "release_date": "2023-04-05",
+      "video": false,
+      "vote_average": 7.621,
+      "vote_count": 293
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/mfPfFVhpnGp8bG4IUoBJPUs2xKj.jpg",
+      "id": 620705,
+      "title": "Crater",
+      "original_language": "en",
+      "original_title": "Crater",
+      "overview": "After the death of his father, a boy growing up on a lunar mining colony takes a trip to explore a legendary crater, along with his four best friends, prior to being permanently relocated to another planet.",
+      "poster_path": "/n8ZpMwYT02XjpQHpSxn1eJw5Zpz.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        878,
+        28,
+        12,
+        10751
+      ],
+      "popularity": 60.868,
+      "release_date": "2023-05-12",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 25
+    }
+  ],
+  "total_pages": 1000,
+  "total_results": 20000
+}

@@ -1,4 +1,4 @@
-package com.paulo.mymovie.domain.repositories
+package com.paulo.mymovie.domain.contracts.repositories
 
 import kotlinx.coroutines.flow.Flow
 

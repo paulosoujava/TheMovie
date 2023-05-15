@@ -1,6 +1,8 @@
 package com.paulo.mymovie.presenter.screens.main
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,12 +21,17 @@ import androidx.compose.ui.platform.LocalContext
 
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
+import com.google.firebase.dynamiclinks.PendingDynamicLinkData
 import com.paulo.mymovie.core.BaseEvent
+import com.paulo.mymovie.domain.model.Movie
 import com.paulo.mymovie.presenter.commons.ErrorMessage
 import com.paulo.mymovie.presenter.commons.Loading
 import com.paulo.mymovie.presenter.graph.SetupNavGraph
+import com.paulo.mymovie.presenter.graph.navigateToDetail
 import com.paulo.mymovie.presenter.theme.MyMovieTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -63,6 +70,8 @@ class MainActivity : ComponentActivity() {
                 systemUiController.setStatusBarColor(Color.Transparent)
                 systemUiController.setNavigationBarColor(Color.Transparent)
 
+                val screen by splashViewModel.startScreen
+                val navController = rememberNavController()
 
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 
@@ -81,10 +90,6 @@ class MainActivity : ComponentActivity() {
                          ***************************************************************************************/
 
                         BaseEvent.REGULAR -> {
-                            val screen by splashViewModel.startScreen
-                            val navController = rememberNavController()
-
-                            //necessário fazer deste jeito para evitar o bug que pisca a tela anterior
                             AnimatedVisibility(visible = screen != null) {
                                 SetupNavGraph(
                                     navController = navController,
@@ -92,6 +97,7 @@ class MainActivity : ComponentActivity() {
                                     contentHeaderHome = stateTrending.value.success,
                                     contentHome = statePopular.value.success,
                                 )
+
                             }
                             showLoading.value = false
                         }
@@ -124,6 +130,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
     }
 }
 

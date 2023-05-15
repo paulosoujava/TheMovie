@@ -1,5 +1,6 @@
 package com.paulo.mymovie.presenter.screens.detail.components
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
@@ -19,6 +21,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.PlayArrow
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
@@ -43,9 +46,11 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.paulo.mymovie.R
 import com.paulo.mymovie.domain.model.Movie
+import com.paulo.mymovie.domain.util.isOnline
 import com.paulo.mymovie.presenter.commons.FavoriteViewModel
 import com.paulo.mymovie.presenter.theme.Orange
 import com.paulo.mymovie.presenter.util.pathImage
+import com.paulo.mymovie.presenter.util.share
 
 @Composable
 @OptIn(ExperimentalMotionApi::class)
@@ -59,6 +64,8 @@ fun Content(
     viewModelFavorite: FavoriteViewModel,
     state: State<Movie?>
 ) {
+    val context = LocalContext.current
+    
     MotionLayout(
         motionScene = MotionScene(content = motionScene),
         motionLayoutState = motionState,
@@ -147,7 +154,12 @@ fun Content(
             }
 
             IconButton(onClick = {
-                showVideoTitles.value = !showVideoTitles.value
+                if(isOnline(context)){
+                    showVideoTitles.value = !showVideoTitles.value
+                }else{
+                    Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show()
+                }
+
             }) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(Icons.Outlined.PlayArrow, contentDescription = "", tint = Color.White)
@@ -155,13 +167,31 @@ fun Content(
                 }
             }
             IconButton(onClick = {
+                share(
+                    context,
+                    movie.title,
+                    movie.id.toString(),
+                )
+            }) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(
+                        Icons.Outlined.Share,
+                        modifier = Modifier.size(20.dp),
+                        contentDescription = "", tint = Color.White
+                    )
+                    Text(text = "SHARE", color =  Color.White, fontSize = 12.sp)
+                }
+            }
+
+            IconButton(onClick = {
                 viewModelFavorite.onSaveMovie(movie)
             }) {
                 val color = if (state.value != null) Orange else Color.White
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
                         if (state.value != null) Icons.Outlined.Favorite else Icons.Outlined.FavoriteBorder,
-                        contentDescription = "", tint = color
+                        contentDescription = "", tint = color,
+                        modifier = Modifier.size(20.dp),
                     )
                     Text(text = "FAVORITE", color = color, fontSize = 12.sp)
                 }

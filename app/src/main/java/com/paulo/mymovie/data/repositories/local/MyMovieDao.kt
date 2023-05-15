@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 interface MyMovieDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addFavorite(trending: Movie)
+    fun addFavorite(movie: Movie)
 
     @Query("DELETE FROM ${Constants.TRENDING_DB} WHERE id = :code")
     fun deleteFavorite(code: Long)
