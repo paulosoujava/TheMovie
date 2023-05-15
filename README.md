@@ -51,7 +51,7 @@ https://www.themoviedb.org/
  ## local.properties
 
 ```
->>>>>>> 997ee1d2f551007417197381e2cf56f9b8e4cd0f
+
 api=" SEU KEY DO MOVIE DB"
 base_url="https://api.themoviedb.org/3/"
 base_image="https://image.tmdb.org/t/p/"
