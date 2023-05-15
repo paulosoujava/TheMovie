@@ -23,9 +23,9 @@ https://www.themoviedb.org/
 
 # Utilizamos o Cache usando o iterceptor 
 
- # !! IMPORTANTE !!
- ````
-=======
+# !! IMPORTANTE !!
+ 
+
 > Onboarding
  >>Usei o Onboarding de welcome para fazer o download dos dados
  que pego da api. Enquanto o cliente se deleita na bela tela de entrada
