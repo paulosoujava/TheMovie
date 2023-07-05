@@ -43,6 +43,8 @@ https://www.themoviedb.org/
 
 > Observer
 
+> State
+
 
 
 ## Importante
