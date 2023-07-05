@@ -46,6 +46,18 @@ https://www.themoviedb.org/
 
 
 ## Importante
+COMENTE O CÓDIGO PARA GERAR AS CHAVES CORRETAMENTE:
+no build.gradle a nível de projeto comente o código assim:
+```
+  /*
+        buildConfigField("String", "API_KEY", apikeyProperties["api"] as String)
+        buildConfigField("String", "BASE_URL", apikeyProperties["base_url"] as String)
+        buildConfigField("String", "BASE_IMAGE", apikeyProperties["base_image"] as String)
+        buildConfigField("String", "W400H660", apikeyProperties["w440_and_h660_face"] as String)
+        buildConfigField("String", "TOKEN", apikeyProperties["token"] as String)
+    */
+```
+DEPOIS:
 
 > Para que o aplicativo funcione, você deve colocar o código abaixo no:
  ## local.properties
@@ -58,6 +70,24 @@ base_image="https://image.tmdb.org/t/p/"
 w440_and_h660_face ="w440_and_h660_face"
 token=" SEU TOKEN DO MOVIE DB"
 ```
+Clique em SINCRONIZAR
+e DESCOMENTE O CÓDIGO:
+```
+        buildConfigField("String", "API_KEY", apikeyProperties["api"] as String)
+        buildConfigField("String", "BASE_URL", apikeyProperties["base_url"] as String)
+        buildConfigField("String", "BASE_IMAGE", apikeyProperties["base_image"] as String)
+        buildConfigField("String", "W400H660", apikeyProperties["w440_and_h660_face"] as String)
+        buildConfigField("String", "TOKEN", apikeyProperties["token"] as String)
+```
+Pode ocorrer que seu android studio reclame do plugin do gradle, então mude-o para:
+```
+  id("com.android.application") version "8.0.2" apply false
+```
+Se tudo der certo o projeto irá buildar mas se não der você pode se deliciar com o vídeo:
+
+https://www.youtube.com/watch?v=_5c7yJN66yI&t=267s
+
+Usages:
 - Flow
 - ViewModel
 - Retrofit
