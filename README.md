@@ -52,7 +52,7 @@ https://www.themoviedb.org/
 
 ```
 
-api=" SEU KEY DO MOVIE DB"
+api="SEU KEY DO MOVIE DB"
 base_url="https://api.themoviedb.org/3/"
 base_image="https://image.tmdb.org/t/p/"
 w440_and_h660_face ="w440_and_h660_face"
@@ -71,7 +71,7 @@ token=" SEU TOKEN DO MOVIE DB"
 - Jetpack compose ( É VIDA )
 - gradle 8
 - Local Properties
-- Clean arquitecture
+- Clean architecture
 - Um final de semana todo 😢
 
 
